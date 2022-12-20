@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Hotspot Login</title>
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="-1" />	
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+<link rel="stylesheet" href="login.css" media="screen">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+ 
+
+</head>
+<body class='login'>
+$(if chap-id)
+	<form name="sendin" action="$(link-login-only)" method="post">
+		<input type="hidden" name="username" />
+		<input type="hidden" name="password" />
+		<input type="hidden" name="dst" value="$(link-orig)" />
+		<input type="hidden" name="popup" value="true" />
+	</form>
+	
+	<script type="text/javascript" src="/md5.js"></script>
+	<script type="text/javascript">
+	<!--
+	    function doLogin() {
+		document.sendin.username.value = document.login.username.value;
+		document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+		document.sendin.submit();
+		return false;
+	    }
+	//-->
+	</script>
+$(endif)
+
+
+<form class="vertical-form" name="login" action="$(link-login-only)" method="post"
+	$(if chap-id) onSubmit="return doLogin()" $(endif)>
+<input type="hidden" name="dst" value="$(link-orig)" />
+<input type="hidden" name="popup" value="true" />
+<div style="margin:0;padding:0;display:inline"></div>
+<legend class="legend">
+
+<img class="logo" src="KDI.png"/>
+    <h2 style="font-family:'copperplate',fantasy;">SMK PGRI 2 Giri Banyuwangi</h2>
+</legend>
+
+<input autofocus name="username" type="text" value="$(username)" placeholder="User" size="30" />
+<input autocomplete="off" name="password" type="password" label="false" placeholder="Password" size="30" />
+<input type="submit" value=" " />
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="font-family:sans-serif; display: block; margin: 0 auto; text-align: center; width: 280px; color:#FFF ; font-size: 18px;">
+	Klik disini untuk melihat jurusan SMK PGRI 2 Giri
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h1 class="modal-title fs-5" id="staticBackdropLabel" style="font-family:Arial,Helvetica,sans-serif">Jurusan SMK PGRI 2 Giri</h1>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+		  <img src="Logo Jurusan/HSAC.jpeg" alt="logo Akuntansi dan Keuangan Lembaga" style="height:50px; width:50px; margin-right:20px;"> Akuntansi dan Keuangan Lembaga<br>
+		  <img src="Logo Jurusan/logoKDI.png" alt="logo Desain Permodelan dan Informasi" style="height:50px; width:50px; margin-right:20px; margin-top: 8px;"> Desain Pemodelan dan Informasi<br>
+		  <img src="Logo Jurusan/DPIB.png" alt="logo DPIB" style="height:50px; width:50px; margin-right:20px; margin-top: 8px;"> Bangunan (DPIB)/Arsitek<br>
+		  <img src="Logo Jurusan/TBSM2.jpg" alt="logo TBSM" style="height:50px; width:50px; margin-right:20px; margin-top: 8px;"> Teknik dan Bisnis Sepeda motor<br>
+		  <img src="Logo Jurusan/TITL.jpeg" alt="logo TITL" style="height:50px; width:50px; margin-right:20px; margin-top: 8px;"> Teknik Instalasi Tenaga Listrik<br>
+		  <img src="Logo Jurusan/DITRO.png" alt="logo DITRO" style="height:40px; width:50px; margin-right:20px; margin-top: 8px;"> Teknik Kendaraan Ringan Otomotif<br>
+		  <img src="Logo Jurusan/TKJ2.jpg" alt="logo TKJ" style="height:50px; width:50px; margin-right:20px; margin-top: 8px;"> Teknik Komputer dan Jaringan
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+
+<div class='footer'>
+
+<p>$(if trial == 'yes')Free trial available, <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">click here</a>.$(endif)</p>
+<p>$(if error)<span style="color: #42BEB1; font-size: 16px">$(error)</span>$(endif)</p>
+<br>
+<p>
+</p>
+</div>
+</form>
+
+<script type="text/javascript">
+<!--
+  document.login.username.focus();
+//-->
+</script>
+<script type="text/javascript">
+document.oncontextmenu = function(){return false;}
+</script>
+<script src="js/bootstrap.min.js"></script>
+
+
+
+</body>
+</html>
